@@ -3,6 +3,7 @@ package br.com.java.rasfood.dao;
 import br.com.java.rasfood.entity.Categoria;
 
 import javax.persistence.EntityManager;
+import java.util.List;
 
 public class CategoriaDao {
     private EntityManager entityManager;
@@ -28,5 +29,10 @@ public class CategoriaDao {
     public void remove(final Categoria categoria) {
         this.entityManager.remove(categoria);
         System.out.println("Entidade removida:" + categoria);
+    }
+
+    public List<Categoria> getbyAll() {
+        String jpql = "SELECT c FROM Categoria c";
+        return this.entityManager.createQuery(jpql,Categoria.class).getResultList();
     }
 }

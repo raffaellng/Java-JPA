@@ -51,6 +51,8 @@ public class CardapioService {
 //        System.out.println("O prato consultado foi: "+ cardapioDao.getById(1));
 //        System.out.println("O prato consultado foi: "+ cardapioDao.getById(2));
         cardapioDao.getAll().forEach(elemento -> System.out.println("O prato consultado foi: " + elemento));
+
+        System.out.println("O produto pesquisado foi: " + cardapioDao.getByNameLike("Risoto acompanhado de lula, polvo e mariscos"));
         entityManager.close(); //Fecha conexao do banco
 
     }
