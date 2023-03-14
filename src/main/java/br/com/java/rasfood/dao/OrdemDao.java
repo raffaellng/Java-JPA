@@ -1,6 +1,7 @@
 package br.com.java.rasfood.dao;
 
 import br.com.java.rasfood.entity.Ordem;
+import br.com.java.rasfood.vo.ItensPrincipaisVo;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -14,16 +15,21 @@ public class OrdemDao {
 
     public void create(final Ordem ordem) {
         this.entityManager.persist(ordem);
-        System.out.println("Entidade Cadastrada:" + ordem);
+//        System.out.println("Entidade Cadastrada:" + ordem);
     }
 
     public Ordem getById(final Integer id) {
         return this.entityManager.find(Ordem.class, id);
     }
 
-    public List<Ordem> getByAll(){
-        String jpql = "SELECT c FROM Categoria c";
-        return this.entityManager.createQuery(jpql, Ordem.class).getResultList();
+    public List<ItensPrincipaisVo> consultarItensMaisVendidos(){
+        String jpql = "SELECT new br.com.java.rasfood.vo.ItensPrincipaisVo(" +
+                "c.nome, SUM(oc.quantidade)) FROM Ordem o " +
+                "JOIN OrdensCardapio oc on o.id = oc.cardapio.id " +
+                "JOIN oc.cardapio c " +
+                "GROUP BY c.nome " +
+                "ORDER BY SUM(oc.quantidade) DESC";
+        return this.entityManager.createQuery(jpql, ItensPrincipaisVo.class).getResultList();
     }
 
     public void update(final Ordem ordem) {

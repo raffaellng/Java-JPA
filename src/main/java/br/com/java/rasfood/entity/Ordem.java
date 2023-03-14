@@ -15,7 +15,7 @@ public class Ordem {
     private Integer id;
 
     @Column(name = "valor_total")
-    private BigDecimal valorTotal;
+    private BigDecimal valorTotal = new BigDecimal(0);
 
     @Column(name = "data_de_criacao")
     private LocalDateTime dataDeCriacao = LocalDateTime.now();
@@ -33,9 +33,11 @@ public class Ordem {
         this.cliente = cliente;
     }
 
-    public void addOrdensCardapio(OrdensCardapio ordensCardapio){
+    public void addOrdensCardapio(OrdensCardapio ordensCardapio) {
         ordensCardapio.setOrdem(this);
         this.ordensCardapioList.add(ordensCardapio);
+        this.valorTotal = valorTotal.add(ordensCardapio.getValorDeRegistro()
+                .multiply(BigDecimal.valueOf(ordensCardapio.getQuantidade())));
     }
 
     public Integer getId() {
@@ -85,6 +87,7 @@ public class Ordem {
                 ", valorTotal=" + valorTotal +
                 ", dataDeCriacao=" + dataDeCriacao +
                 ", cliente=" + cliente +
+                ", ordensCardapioList=" + ordensCardapioList +
                 '}';
     }
 }

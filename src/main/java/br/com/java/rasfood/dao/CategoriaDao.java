@@ -14,7 +14,7 @@ public class CategoriaDao {
 
     public void create(final Categoria categoria) {
         this.entityManager.persist(categoria);
-        System.out.println("Entidade Cadastrada:" + categoria);
+//        System.out.println("Entidade Cadastrada:" + categoria);
     }
 
     public Categoria getById(final Integer id) {
@@ -23,7 +23,7 @@ public class CategoriaDao {
 
     public void update(final Categoria categoria) {
         this.entityManager.merge(categoria);
-        System.out.println("Entidade Atualizada:" + categoria);
+//        System.out.println("Entidade Atualizada:" + categoria);
     }
 
     public void remove(final Categoria categoria) {

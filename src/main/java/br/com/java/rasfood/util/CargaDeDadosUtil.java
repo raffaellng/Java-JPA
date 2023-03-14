@@ -1,9 +1,6 @@
 package br.com.java.rasfood.util;
 
-import br.com.java.rasfood.dao.CardapioDao;
-import br.com.java.rasfood.dao.CategoriaDao;
-import br.com.java.rasfood.dao.ClienteDao;
-import br.com.java.rasfood.dao.OrdemDao;
+import br.com.java.rasfood.dao.*;
 import br.com.java.rasfood.entity.*;
 
 import javax.persistence.EntityManager;
@@ -65,24 +62,43 @@ public class CargaDeDadosUtil {
     public static void createClientes(EntityManager entityManager){
 
         ClienteDao clienteDao = new ClienteDao(entityManager);
+        EnderecoDao enderecoDao = new EnderecoDao(entityManager);
 
-        Cliente felipe = new Cliente("12345678901","feilpe@email.com","Felipe Ribeiro", "38410415");
+        Endereco augusta = new Endereco("000000000","augusta","casa 43","Sao Paulo","SP");
+        Cliente felipe = new Cliente("12345678901","feilpe@email.com","Felipe Ribeiro");
+        felipe.addEndereco(augusta);
 
-        Cliente cleber = new Cliente("111111111111","cleber@email.com","Cleber Machado", "38410415");
+        Endereco rioVermelho = new Endereco("000000001","Lapa","apto 1001","Salvador","BA");
+        Cliente cleber = new Cliente("111111111111","cleber@email.com","Cleber Machado");
+        cleber.addEndereco(rioVermelho);
 
-        Cliente calvin = new Cliente("09876543210","calvin@email.com","Calvin Coelho", "38410415");
+        Endereco leblon = new Endereco("000000002","Lapa","apto 203","Rio de Janeiro","RJ");
+        Cliente calvin = new Cliente("09876543210","calvin@email.com","Calvin Coelho");
+        calvin.addEndereco(leblon);
 
-        Cliente tayane = new Cliente("111111111123","tayane@email.com","Tayane Lopes Costa", "38410415");
+        Endereco heitorPenteado = new Endereco("000000000","Heitor Penteado","apto 101","Santos","SP");
+        Cliente tayane = new Cliente("111111111123","tayane@email.com","Tayane Lopes Costa");
+        tayane.addEndereco(heitorPenteado);
 
-        Cliente denise = new Cliente("111111111145","denise@email.com","Denise Costa", "38410415");
+        Endereco consolacao = new Endereco("000000000","Lapa","apto 1001","Sao Paulo","SP");
+        Cliente denise = new Cliente("111111111145","denise@email.com","Denise Costa");
+        denise.addEndereco(consolacao);
 
-        Cliente claudia = new Cliente("111111111345","claudia@email.com","Claudia Rosa", "38410415");
+        Endereco nacoesUnidas = new Endereco("000000000","NacoesUnidas","casa 27","Sao Paulo","SP");
+        Cliente claudia = new Cliente("111111111345","claudia@email.com","Claudia Rosa");
+        claudia.addEndereco(nacoesUnidas);
 
+        enderecoDao.create(augusta);
         clienteDao.create(felipe);
+        enderecoDao.create(rioVermelho);
         clienteDao.create(cleber);
+        enderecoDao.create(leblon);
         clienteDao.create(calvin);
+        enderecoDao.create(heitorPenteado);
         clienteDao.create(tayane);
+        enderecoDao.create(consolacao);
         clienteDao.create(denise);
+        enderecoDao.create(nacoesUnidas);
         clienteDao.create(claudia);
 
         entityManager.flush();

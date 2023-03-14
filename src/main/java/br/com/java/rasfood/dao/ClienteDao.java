@@ -15,7 +15,7 @@ public class ClienteDao {
 
     public void create(final Cliente cliente) {
         this.entityManager.persist(cliente);
-        System.out.println("Entidade Cadastrada:" + cliente);
+//        System.out.println("Entidade Cadastrada:" + cliente);
     }
 
     public Cliente getById(final Integer id) {
@@ -23,7 +23,7 @@ public class ClienteDao {
     }
 
     public List<Cliente> getByAll(){
-        String jpql = "SELECT c FROM Categoria c";
+        String jpql = "SELECT c FROM Cliente c";
         return this.entityManager.createQuery(jpql, Cliente.class).getResultList();
     }
 
