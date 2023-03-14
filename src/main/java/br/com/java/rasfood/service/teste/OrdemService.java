@@ -22,21 +22,11 @@ public class OrdemService {
         CargaDeDadosUtil.createClientes(entityManager);
         CargaDeDadosUtil.createOrdensClientes(entityManager);
 
-//        CardapioDao cardapioDao = new CardapioDao(entityManager);
-//        ClienteDao clienteDao = new ClienteDao(entityManager);
         OrdemDao ordemDao = new OrdemDao(entityManager);
+        Ordem ordem = ordemDao.getById(2);
+        System.out.println(ordem.getValorTotal());
 
-//        Endereco endereco = new Endereco("00000000", "Sei la", "sem complemento", "Uberlandia", "MG");
-//        Cliente cliente = new Cliente("11111111", "felipe", "teste@teste");
-//        cliente.addEndereco(endereco);
-//        Ordem ordem = new Ordem(cliente);
-//        ordem.addOrdensCardapio(new OrdensCardapio(cardapioDao.getById(1), 2));
-//        ordem.addOrdensCardapio(new OrdensCardapio(cardapioDao.getById(2), 3));
-//
-//        clienteDao.create(cliente);
-//        ordemDao.create(ordem);
-
-         System.out.println(ordemDao.consultarItensMaisVendidos());
+//        System.out.println(ordemDao.consultarItensMaisVendidos());
 
         entityManager.getTransaction().commit();
         entityManager.close();

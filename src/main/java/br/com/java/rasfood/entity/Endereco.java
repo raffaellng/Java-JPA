@@ -21,7 +21,7 @@ public class Endereco {
     @Column(length = 2)
     private String estado;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Cliente cliente;
 
     public Endereco() {
