@@ -5,10 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="8f0aaaee-1446-4157-b970-4538ee0b5360" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/dao/ClienteId.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/Contato.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/vo/ClienteVo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/Cardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/Cardapio.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/Ordem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/Ordem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/OrdensCardapio.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/OrdensCardapio.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/dao/ClienteDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/dao/ClienteDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/dao/EnderecoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/dao/EnderecoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/dao/OrdemDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/dao/OrdemDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/entity/Cliente.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/service/teste/OrdemService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/br/com/java/rasfood/service/teste/OrdemService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />

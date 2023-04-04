@@ -1,5 +1,7 @@
 package br.com.java.rasfood.entity;
 
+import br.com.java.rasfood.dao.ClienteId;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -8,10 +10,12 @@ import java.util.List;
 @Table(name = "clientes")
 public class Cliente {
 
-    @Id
-    private String cpj;
+    @Embedded
+    private ClienteId clienteId;
     private String nome;
-    private String email;
+
+    @Embedded
+    private Contato contato;
 
     @OneToMany(mappedBy = "cliente", cascade = CascadeType.ALL)
     private List<Endereco> enderecoList = new ArrayList<>();
@@ -19,31 +23,30 @@ public class Cliente {
     public Cliente() {
     }
 
-    public Cliente(String cpj, String nome, String email) {
-        this.cpj = cpj;
+    public Cliente(String cpf, String email, String nome) {
+        this.clienteId = new ClienteId(email,cpf);
         this.nome = nome;
-        this.email = email;
     }
 
-    public void addEndereco(Endereco endereco){
+    public void addEndereco(Endereco endereco) {
         endereco.setCliente(this);
         this.enderecoList.add(endereco);
     }
 
     public String getEmail() {
-        return email;
+        return clienteId.getEmail();
     }
 
     public void setEmail(String email) {
-        this.email = email;
+        this.clienteId.setEmail(email);
     }
 
-    public String getCpj() {
-        return cpj;
+    public String getCpf() {
+        return clienteId.getCpf();
     }
 
-    public void setCpj(String cpj) {
-        this.cpj = cpj;
+    public void setCpf(String cpf) {
+        this.clienteId.setCpf(cpf);
     }
 
     public String getNome() {
@@ -62,13 +65,22 @@ public class Cliente {
         this.enderecoList = enderecoList;
     }
 
+    public Contato getContato() {
+        return contato;
+    }
+
+    public void setContato(Contato contato) {
+        this.contato = contato;
+    }
+
     @Override
     public String toString() {
         return "Cliente{" +
-                "cpj='" + cpj + '\'' +
+                "cpf='" + clienteId.getCpf() + '\'' +
                 ", nome='" + nome + '\'' +
-                ", email='" + email + '\'' +
-                ", enderecoList='" + enderecoList + '\'' +
+                ", email='" + clienteId.getEmail() + '\'' +
+                ", contato=" + contato +
+                ", enderecoList=" + enderecoList +
                 '}';
     }
 }

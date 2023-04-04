@@ -18,13 +18,18 @@ public class ClienteDao {
 //        System.out.println("Entidade Cadastrada:" + cliente);
     }
 
-    public Cliente getById(final Integer id) {
+    public Cliente getById(final ClienteId id) {
         return this.entityManager.find(Cliente.class, id);
     }
 
     public List<Cliente> getByAll(){
         String jpql = "SELECT c FROM Cliente c";
         return this.entityManager.createQuery(jpql, Cliente.class).getResultList();
+    }
+
+    public List<Cliente> getByName(String nome){
+        String jpql = "SELECT c FROM Cliente c WHERE LOWER(c.nome) LIKE LOWER(:nome)";
+        return this.entityManager.createQuery(jpql, Cliente.class).setParameter("nome","%" + nome + "%").getResultList();
     }
 
     public void update(final Cliente cliente) {
